@@ -8,6 +8,33 @@
     padding: 0;
 }
 
+:root {
+    --body-backcolor: rgba(48, 18, 18, 0.5);
+    --main-container-top-backcolor: rgb(59, 21, 21);
+    --main-container-bottom-backcolor: rgb(58, 21, 21);
+
+    --navigation-item-backcolor: rgb(245, 245, 220);
+    --navigation-item-backcolor-hover: rgba(109, 14, 233, 1);
+    --navigation-item-forecolor: rgb(77, 105, 228);
+    --navigation-item-forecolor-hover: rgb(255, 255, 255);
+    --navigation-current-page-after-backcolor: rgb(185, 75, 185);
+
+    --main-link-forecolor: rgba(86, 194, 227, 1);
+    --main-link-hover-forecolor: rgba(106, 214, 247, 1);
+
+    --footer-backcolor: rgba(48, 18, 18, 1);
+    --footer-forecolor: rgb(139, 246, 251);
+
+    --section-background: rgb(100, 114, 193);
+    --section-boxes: rgb(96, 103, 146);
+    --section-margin: rgb(43, 48, 77);
+    --white: rgb(255, 255, 255);
+    --black: rgb(0, 0, 0);
+    --blue: rgb(0, 0, 255);
+    --red: rgb(255, 0, 0);
+    --yellow: rgb(255, 255, 0);
+}
+
 body {
     margin: 0 40px;
 
