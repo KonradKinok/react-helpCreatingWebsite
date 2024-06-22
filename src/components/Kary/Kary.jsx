@@ -14,6 +14,7 @@ export const Kary = ({ date }) => {
             <DateTimePicker.DateTimePicker />
             <DateTimePicker.PickerButton />
             <DateTimePicker.DatePickerCustomHeader />
+            <DateTimePicker.DatePickerMonthsYears />
             <Footer />
         </>
     );

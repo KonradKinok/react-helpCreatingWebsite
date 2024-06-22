@@ -1,4 +1,21 @@
 @charset "UTF-8";
+
+
+.inputDateTimePicker{
+    border-color: red;
+    width: 150px;
+}
+
+.inputWeek{
+    background-color: #bde215;
+}
+// .inputWeek :nth-child(3n+1) {
+//     background-color: #658254;
+// }
+// .inputWeek :nth-child(3n+2) {
+//     background-color: #302ec9;
+// }
+// ---------------------------------------------------------------------
 /* stylelint-disable */
  .react-datepicker__year-read-view--down-arrow,
  .react-datepicker__month-read-view--down-arrow,
