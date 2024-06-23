@@ -26,22 +26,24 @@ export const DateTimePicker = () => {
         );
     };
     return (
-        <DatePicker
-            dateFormat="dd.MM.yyyy"
-            showIcon
-            toggleCalendarOnIconClick
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            icon={<svg className={style.iconContainer} >
-                <use xlinkHref={`${icon}#calendar`} />
-            </svg>}
-            calendarContainer={MyContainer}
-            onCalendarClose={handleCalendarClose}
-            onCalendarOpen={handleCalendarOpen}
-        >
-            <div style={{ color: "red" }}>Don't forget to check the weather!</div>
-        </DatePicker>
-
+        <div>
+            <DatePicker
+                dateFormat="dd.MM.yyyy"
+                showIcon
+                toggleCalendarOnIconClick
+                selected={startDate}
+                onChange={(startDate) => setStartDate(startDate)}
+                icon={<svg className={style.iconContainer} >
+                    <use xlinkHref={`${icon}#calendar`} />
+                </svg>}
+                calendarContainer={MyContainer}
+                onCalendarClose={handleCalendarClose}
+                onCalendarOpen={handleCalendarOpen}
+            >
+                <div style={{ color: "red" }}>Don't forget to check the weather!</div>
+            </DatePicker>
+            <div>Selected start date={startDate ? startDate.toString() : null}</div>
+        </div>
     );
 
 };
@@ -109,80 +111,82 @@ export const DatePickerCustomHeader = () => {
     };
 
     return (
-        <DatePicker
-            dateFormat="dd.MM.yyyy"
-            showIcon
-            toggleCalendarOnIconClick
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            openToDate={new Date(`${new Date().getFullYear()}/01/01`)}
-            minDate={new Date("2020/01/01")}
-            todayButton="Dzisiaj"
-            // onChangeRaw={(event) => handleChangeRaw(event.target.value)}
-            locale={pl}
-            icon={<svg className={style.iconContainer} >
-                <use xlinkHref={`${icon}#calendar`} />
-            </svg>}
-            // style
-            className={style.inputDateTimePicker} //input style
-            calendarClassName={style.inputWeek} //months style
-            renderCustomHeader={({
-                date,
-                changeYear,
-                changeMonth,
-                decreaseMonth,
-                increaseMonth,
-                prevMonthButtonDisabled,
-                nextMonthButtonDisabled,
-            }) => (
-                <div
-                    style={{
-                        margin: 10,
-                        display: "flex",
-                        justifyContent: "center",
-                    }}
-                >
-                    <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
-                        {"<"}
-                    </button>
-                    <select
-                        value={getYear(date)}
-                        onChange={({ target: { value } }) => changeYear(value)}
+        <div>
+            <DatePicker
+                dateFormat="dd.MM.yyyy"
+                showIcon
+                toggleCalendarOnIconClick
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                openToDate={new Date(`${new Date().getFullYear()}/01/01`)}
+                minDate={new Date("2020/01/01")}
+                todayButton="Dzisiaj"
+                // onChangeRaw={(event) => handleChangeRaw(event.target.value)}
+                locale={pl}
+                icon={<svg className={style.iconContainer} >
+                    <use xlinkHref={`${icon}#calendar`} />
+                </svg>}
+                // style
+                className={style.inputDateTimePicker} //input style
+                calendarClassName={style.inputWeek} //months style
+                renderCustomHeader={({
+                    date,
+                    changeYear,
+                    changeMonth,
+                    decreaseMonth,
+                    increaseMonth,
+                    prevMonthButtonDisabled,
+                    nextMonthButtonDisabled,
+                }) => (
+                    <div
+                        style={{
+                            margin: 10,
+                            display: "flex",
+                            justifyContent: "center",
+                        }}
                     >
-                        {years.map((option) => (
-                            <option key={option} value={option}>
-                                {option}
-                            </option>
-                        ))}
-                    </select>
+                        <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+                            {"<"}
+                        </button>
+                        <select
+                            value={getYear(date)}
+                            onChange={({ target: { value } }) => changeYear(value)}
+                        >
+                            {years.map((option) => (
+                                <option key={option} value={option}>
+                                    {option}
+                                </option>
+                            ))}
+                        </select>
 
-                    <select
-                        value={months[getMonth(date)]}
-                        onChange={({ target: { value } }) =>
-                            changeMonth(months.indexOf(value))
-                        }
-                    >
-                        {months.map((option) => (
-                            <option key={option} value={option}>
-                                {option}
-                            </option>
-                        ))}
-                    </select>
+                        <select
+                            value={months[getMonth(date)]}
+                            onChange={({ target: { value } }) =>
+                                changeMonth(months.indexOf(value))
+                            }
+                        >
+                            {months.map((option) => (
+                                <option key={option} value={option}>
+                                    {option}
+                                </option>
+                            ))}
+                        </select>
 
-                    <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
-                        {">"}
-                    </button>
-                </div>
-            )}
+                        <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+                            {">"}
+                        </button>
+                    </div>
+                )}
 
 
-            calendarContainer={MyContainer}
-            onCalendarClose={handleCalendarClose}
-            onCalendarOpen={handleCalendarOpen}
-        >
-            <div style={{ color: "red" }}>Don't forget to check the weather!</div>
-        </DatePicker>
-
+                calendarContainer={MyContainer}
+                onCalendarClose={handleCalendarClose}
+                onCalendarOpen={handleCalendarOpen}
+            >
+                <div style={{ color: "red" }}>Don't forget to check the weather!</div>
+            </DatePicker>
+            <div>Selected start date={startDate ? startDate.toString() : null}</div>
+        </div>
     );
 
 };

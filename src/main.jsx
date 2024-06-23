@@ -7,5 +7,6 @@ import { Kary } from "./components/Kary/Kary";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Kary />
+    <Footer />
   </React.StrictMode>
 );
