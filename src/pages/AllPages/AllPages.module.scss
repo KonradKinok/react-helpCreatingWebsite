@@ -1,0 +1,23 @@
+.navbar {
+    background-color: rgb(23 23 23);
+}
+
+.navbar  {
+    display: flex;
+    justify-content: start;
+    gap: 15px;
+    padding: 1em;
+    list-style-type: none;
+}
+
+.navbar a {
+    color: rgb(229 229 229);
+    text-decoration: none;
+    font-family: inter;
+}
+.navbar a:hover {
+    color: rgb(56, 21, 212);
+}
+.navbar a.active {
+    color: rgb(34 197 94);
+}

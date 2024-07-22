@@ -1,14 +1,13 @@
 import "./globalStyles/index.css"
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Footer } from "./components/Footer";
-import { Kary } from "./components/Kary/Kary";
-import { ReactHooks } from "./components/ReactHooks/ReactHooks";
-
+import { AllPages } from "./pages/AllPages/AllPages";
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Kary />
-    <ReactHooks />
-    <Footer />
+    <BrowserRouter>
+      <AllPages />
+    </BrowserRouter>
   </React.StrictMode>
 );
