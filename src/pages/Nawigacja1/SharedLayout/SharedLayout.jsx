@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import { Container, Header, Logo } from "./AllPages/AllPages.styled";
+import { Container, Header, Logo } from "../../AllPages/AllPages.styled";
 
 export const SharedLayout = () => {
     return (
@@ -21,3 +21,4 @@ export const SharedLayout = () => {
         </Container>
     );
 };
+

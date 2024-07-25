@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export function Home() {
 
@@ -11,6 +11,7 @@ export function Home() {
                 <Link to="/react-helpCreatingWebsite/products">Products</Link>
                 <Link to="/react-helpCreatingWebsite/old-components">Old Components</Link>
             </nav>
+            <Outlet />
         </>
     );
 };
