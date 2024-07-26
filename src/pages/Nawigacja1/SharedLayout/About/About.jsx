@@ -1,4 +1,4 @@
-
+import { Suspense } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 export const About = () => {
@@ -17,7 +17,9 @@ export const About = () => {
                     <Link to="reviews">Go through the reviews</Link>
                 </li>
             </ul>
-            <Outlet />
+            <Suspense fallback={<div>Loading subpage...</div>}>
+                <Outlet />
+            </Suspense>
         </div>
     );
 };

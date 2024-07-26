@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { Container, Header, Logo } from "../../AllPages/AllPages.styled";
-
+import { Suspense } from "react";
 export const SharedLayout = () => {
     return (
         <Container>
@@ -17,7 +17,9 @@ export const SharedLayout = () => {
                     <Link to="/react-helpCreatingWebsite/products">Products</Link>
                 </nav>
             </Header>
-            <Outlet />
+            <Suspense fallback={<div>Loading page...</div>}>
+                <Outlet />
+            </Suspense>
         </Container>
     );
 };

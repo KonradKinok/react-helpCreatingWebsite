@@ -1,15 +1,17 @@
 
 import { Routes, Route, NavLink } from "react-router-dom";
+import { lazy } from "react";
 import { SharedLayout } from "../Nawigacja1/SharedLayout/SharedLayout";
 
+import { About } from "../Nawigacja1/SharedLayout/About/About"
 import { Home } from "../Nawigacja1/SharedLayout/Home";
-import { About } from "../Nawigacja1/SharedLayout/About/About";
-import { Products } from "../Nawigacja1/SharedLayout/Products";
 import { ProductDetails } from "../Nawigacja1/SharedLayout/ProductDetails";
-import { OldComponents } from "../../components/OldComponents/OldComponents";
+import { Products } from "../Nawigacja1/SharedLayout/Products";
 import { Mission } from "../Nawigacja1/SharedLayout/About/Mission";
 import { Team } from "../Nawigacja1/SharedLayout/About/Team";
 import { Reviews } from "../Nawigacja1/SharedLayout/About/Reviews";
+
+import { OldComponents } from "../../components/OldComponents/OldComponents";
 import { AdminLayout } from "../Nawigacja1/AdminLayout/AdminLayout";
 import { AdminMain } from "../Nawigacja1/AdminLayout/AdminMain";
 import { Dashboard } from "../Nawigacja1/AdminLayout/Dashboard";
@@ -19,6 +21,22 @@ import { NotFound } from "../Nawigacja1/NotFound/NotFound";
 import { Container, Header, StyledLink } from "./AllPages.styled";
 import style from "./AllPages.module.scss";
 import "./AllPages.scss";
+
+// const About = lazy(() => import("../Nawigacja1/SharedLayout/About/About"));
+// const Home = lazy(() => import("../Nawigacja1/SharedLayout/Home"));
+
+// const ProductDetails = lazy(() => import("../Nawigacja1/SharedLayout/ProductDetails"));
+// const Products = lazy(() => import("../Nawigacja1/SharedLayout/Products"));
+// const Mission = lazy(() => import("../Nawigacja1/SharedLayout/About/Mission"));
+// const Team = lazy(() => import("../Nawigacja1/SharedLayout/About/Team"));
+// const Reviews = lazy(() => import("../Nawigacja1/SharedLayout/About/Reviews"));
+// const OldComponents = lazy(() => import("../../components/OldComponents/OldComponents"));
+// const AdminLayout = lazy(() => import("../Nawigacja1/AdminLayout/AdminLayout"));
+// const AdminMain = lazy(() => import("../Nawigacja1/AdminLayout/AdminMain"));
+// const Dashboard = lazy(() => import("../Nawigacja1/AdminLayout/Dashboard"));
+// const Sales = lazy(() => import("../Nawigacja1/AdminLayout/Sales"));
+// const Customers = lazy(() => import("../Nawigacja1/AdminLayout/Customers"));
+// const NotFound = lazy(() => import("../Nawigacja1/NotFound/NotFound"));
 
 export function AllPages() {
 
