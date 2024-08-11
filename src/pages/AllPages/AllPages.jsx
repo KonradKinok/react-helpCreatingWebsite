@@ -21,12 +21,13 @@ import { NotFound } from "../Nawigacja1/NotFound/NotFound";
 import { Container, Header, StyledLink } from "./AllPages.styled";
 import style from "./AllPages.module.scss";
 import "./AllPages.scss";
-// const ReduxLayout = lazy(() => import("../Redux/ReduxLayout").then(module => ({ default: module.ReduxLayout })));
-// const ReduxMain = lazy(() => import("../Redux/ReduxMain").then(module => ({ default: module.ReduxMain })));
-// const ReduxSimple = lazy(() => import("../Redux/ReduxSimple").then(module => ({ default: module.ReduxSimple })));
-import { ReduxLayout } from "../Redux/ReduxLayout";
-import { ReduxMain } from "../Redux/ReduxMain";
-import { ReduxSimple } from "../Redux/ReduxSimple";
+const ReduxLayout = lazy(() => import("../Redux/ReduxLayout").then(module => ({ default: module.ReduxLayout })));
+const ReduxMain = lazy(() => import("../Redux/ReduxMain").then(module => ({ default: module.ReduxMain })));
+const ReduxSimple = lazy(() => import("../Redux/ReduxSimple").then(module => ({ default: module.ReduxSimple })));
+const Redux_Toolkit = lazy(() => import("../Redux/Redux_Toolkit").then(module => ({ default: module.Redux_Toolkit })));
+// import { ReduxLayout } from "../Redux/ReduxLayout";
+// import { ReduxMain } from "../Redux/ReduxMain";
+// import { ReduxSimple } from "../Redux/ReduxSimple";
 // const About = lazy(() => import("../Nawigacja1/SharedLayout/About/About"));
 // const Home = lazy(() => import("../Nawigacja1/SharedLayout/Home"));
 
@@ -42,7 +43,8 @@ import { ReduxSimple } from "../Redux/ReduxSimple";
 // const Sales = lazy(() => import("../Nawigacja1/AdminLayout/Sales"));
 // const Customers = lazy(() => import("../Nawigacja1/AdminLayout/Customers"));
 // const NotFound = lazy(() => import("../Nawigacja1/NotFound/NotFound"));
-
+import { Provider } from "react-redux";
+import { store } from "../../components/Redux/reduxSimple/redux/store";
 export function AllPages() {
 
     return (
@@ -103,13 +105,17 @@ export function AllPages() {
                             <Route path="sales" element={<Sales />} />
                             <Route path="customers" element={<Customers />} />
                         </Route>
+
                         <Route path="redux" element={<ReduxLayout />}>
                             <Route index element={<ReduxMain />} />
                             <Route path="redux-simple" element={<ReduxSimple />} />
+                            <Route path="redux-toolkit" element={<Redux_Toolkit />} />
                         </Route>
+
                     </Route>
                     <Route path="*" element={<NotFound />} />
                 </Routes>
+
             </Container >
         </>
     );

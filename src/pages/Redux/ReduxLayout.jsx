@@ -8,6 +8,7 @@ export const ReduxLayout = () => {
                 <h3>Menu Redux:</h3>
                 <nav>
                     <Link to="redux-simple">Redux Simple</Link>
+                    <Link to="redux-toolkit">Redux Toolkit</Link>
                 </nav>
                 <hr />
             </div>

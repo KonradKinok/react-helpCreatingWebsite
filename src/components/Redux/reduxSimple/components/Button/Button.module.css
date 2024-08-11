@@ -10,7 +10,7 @@
 }
 
 .btn.isSelected {
-    background-color: #1976d2;
+    background-color: #b319d2;
     color: #fff;
 }
 
@@ -20,6 +20,6 @@
 }
 
 .btn:active {
-    background-color: #1565c0;
+    background-color: #15c05c;
     color: #fff;
 }

@@ -1,4 +1,4 @@
-import { ReduxApp } from "../../components/Redux/components/ReduxApp";
+import { ReduxApp } from "../../components/Redux/reduxSimple/components/ReduxApp";
 export const ReduxSimple = () => {
     return (
         <>
