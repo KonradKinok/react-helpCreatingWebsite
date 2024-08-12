@@ -1,14 +1,15 @@
 import css from "./TaskCounter.module.css";
+import { getTasks } from "../../redux_reduxToolkit/selectors_reduxToolkit";
 // Importujemy hook
 import { useSelector } from "react-redux";
 export const TaskCounter_reduxToolkit = () => {
   // Otrzymujemy tablicę zadań ze statusu Redux
-  const tasks = useSelector(state => state.tasks);
+  const tasks = useSelector(getTasks);
 
   // Na bazie stausu Redux otrzymujemy dane pochodne
   const count = tasks.reduce(
     (acc, task) => {
-      if (task.completed) {
+      if (task.complet) {
         acc.completed += 1;
       } else {
         acc.active += 1;

@@ -36,6 +36,13 @@ const tasksInitialState = [
     complet: true,
     cos: true,
   },
+  {
+    id: 5,
+    text: "Konrad",
+    date: new Date().toISOString(),
+    complet: true,
+    cos: true,
+  },
 ];
 
 const tasksSlice = createSlice({

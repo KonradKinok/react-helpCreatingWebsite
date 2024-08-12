@@ -23,7 +23,7 @@ import style from "./AllPages.module.scss";
 import "./AllPages.scss";
 const ReduxLayout = lazy(() => import("../Redux/ReduxLayout").then(module => ({ default: module.ReduxLayout })));
 const ReduxMain = lazy(() => import("../Redux/ReduxMain").then(module => ({ default: module.ReduxMain })));
-const ReduxSimple = lazy(() => import("../Redux/ReduxSimple").then(module => ({ default: module.ReduxSimple })));
+// const ReduxSimple = lazy(() => import("../Redux/ReduxSimple").then(module => ({ default: module.ReduxSimple })));
 const Redux_Toolkit = lazy(() => import("../Redux/Redux_Toolkit").then(module => ({ default: module.Redux_Toolkit })));
 // import { ReduxLayout } from "../Redux/ReduxLayout";
 // import { ReduxMain } from "../Redux/ReduxMain";
@@ -43,8 +43,7 @@ const Redux_Toolkit = lazy(() => import("../Redux/Redux_Toolkit").then(module =>
 // const Sales = lazy(() => import("../Nawigacja1/AdminLayout/Sales"));
 // const Customers = lazy(() => import("../Nawigacja1/AdminLayout/Customers"));
 // const NotFound = lazy(() => import("../Nawigacja1/NotFound/NotFound"));
-import { Provider } from "react-redux";
-import { store } from "../../components/Redux/reduxSimple/redux/store";
+
 export function AllPages() {
 
     return (
@@ -108,7 +107,7 @@ export function AllPages() {
 
                         <Route path="redux" element={<ReduxLayout />}>
                             <Route index element={<ReduxMain />} />
-                            <Route path="redux-simple" element={<ReduxSimple />} />
+                            {/* <Route path="redux-simple" element={<ReduxSimple />} /> */}
                             <Route path="redux-toolkit" element={<Redux_Toolkit />} />
                         </Route>
 

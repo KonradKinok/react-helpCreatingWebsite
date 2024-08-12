@@ -9,9 +9,9 @@ import css from "./TaskList.module.css";
 const getVisibleTasks = (tasks, statusFilters) => {
   switch (statusFilters) {
     case statusFilters_reduxToolkit.active:
-      return tasks.filter(task => !task.completed);
-    case statusFilters_reduxToolkit.completed:
-      return tasks.filter(task => task.completed);
+      return tasks.filter(task => !task.complet);
+    case statusFilters_reduxToolkit.complety:
+      return tasks.filter(task => task.complet);
     default:
       return tasks;
   }
@@ -22,14 +22,15 @@ export const TaskList_reduxToolkit = () => {
   const tasks = useSelector(getTasks);
   // Otrzymujemy wartość filtra ze statusu Redux
   const statusFilter = useSelector(getStatusFilter);
+
   // Obliczamy tablicę zadań, które należy wyświetlić w interfejsie
   const visibleTasks = getVisibleTasks(tasks, statusFilter);
-
   return (
     <ul className={css.list}>
       {visibleTasks.map(task => (
         <li className={css.listItem} key={task.id}>
           <Task_reduxToolkit task={task} />
+
         </li>
       ))}
     </ul>

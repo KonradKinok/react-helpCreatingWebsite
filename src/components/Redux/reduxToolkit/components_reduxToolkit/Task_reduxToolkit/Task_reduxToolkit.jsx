@@ -3,7 +3,7 @@ import css from "./Task.module.css";
 // Importujemy hook 
 import { useDispatch } from "react-redux";
 // Importujemy generator akcji
-import { deleteTask, toggleCompleted } from "../../redux_reduxToolkit/actions_reduxToolkit.js.backup";
+import { deleteTask, toggleCompleted } from "../../redux_reduxToolkit/tasksSlice";
 
 export const Task_reduxToolkit = ({ task }) => {
   // Otrzymujemy odnośnik do funkcji wysłania akcji
@@ -18,7 +18,6 @@ export const Task_reduxToolkit = ({ task }) => {
   const handleToggle = () => dispatch(toggleCompleted(task.id));
 
   return (
-    console.log("date", task.date),
     <div className={css.wrapper}>
       <input
         type="checkbox"
@@ -26,7 +25,10 @@ export const Task_reduxToolkit = ({ task }) => {
         onChange={handleToggle}
         checked={task.complet}
       />
-      <p className={css.text}>{task.text} xxx {task.date} {task.id}</p>
+      <p className={css.text}>{task.text} xxx {formatDateAndHour(task.date)} </p>
+      <p className={css.text}>
+        Pola obiektu: {Object.keys(task).join(', ')}
+      </p>
       <button className={css.btn} onClick={handleDelete}>
         <MdClose size={24} />
       </button>
@@ -43,5 +45,5 @@ export function formatDateAndHour(dateStr) {
   const hour = date.getHours();
   const minutes = date.getMinutes();
   const seconds = date.getSeconds();
-  return `${day}.${month}.${year} ${hour} ${minutes} ${seconds}`;
+  return `${day}.${month}.${year}y. ${hour}:${minutes}:${seconds}`;
 };

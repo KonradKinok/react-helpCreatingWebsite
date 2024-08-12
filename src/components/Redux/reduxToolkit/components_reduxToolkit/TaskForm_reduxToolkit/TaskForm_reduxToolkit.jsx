@@ -3,7 +3,7 @@ import css from "./TaskForm.module.css";
 // Importujemy hook
 import { useDispatch } from "react-redux";
 // Importujemy generator akcji 
-import { addTask } from "../../redux_reduxToolkit/actions_reduxToolkit.js.backup";
+import { addTask } from "../../redux_reduxToolkit/tasksSlice";;
 
 export const TaskForm_reduxToolkit = () => {
   // Otrzymujemy odnośnik do funkcji wysyłania

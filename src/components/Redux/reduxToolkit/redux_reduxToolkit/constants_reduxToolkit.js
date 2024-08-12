@@ -1,5 +1,5 @@
 export const statusFilters_reduxToolkit = Object.freeze({
-  all: "all",
+  all: "acc",
   active: "active",
-  completed: "completed",
+  complety: "complet",
 });

@@ -4,7 +4,7 @@ import css from "./StatusFilter.module.css";
 // Importujemy hook
 import { useSelector, useDispatch } from "react-redux";
 // Importujemy generator akcji
-import { setStatusFilter } from "../../redux_reduxToolkit/actions_reduxToolkit.js.backup";
+import { setStatusFilter } from "../../redux_reduxToolkit/filtersSlice";
 // Importujemy obiekt wartości filtra
 import { statusFilters_reduxToolkit } from "../../redux_reduxToolkit/constants_reduxToolkit";
 import { getStatusFilter } from "../../redux_reduxToolkit/selectors_reduxToolkit";
@@ -22,10 +22,10 @@ export const StatusFilter_reduxToolkit = () => {
       <Button_reduxToolkit
         selected={filter === statusFilters_reduxToolkit.all}
         onClick={() => handleFilterChange(statusFilters_reduxToolkit.all)}>
-        All
+        All {filter}
       </Button_reduxToolkit>
-      <Button_reduxToolkit selected={filter === statusFilters_reduxToolkit.active} onClick={() => handleFilterChange(statusFilters_reduxToolkit.active)}>Active</Button_reduxToolkit>
-      <Button_reduxToolkit selected={filter === statusFilters_reduxToolkit.completed} onClick={() => handleFilterChange(statusFilters_reduxToolkit.completed)}>Completed</Button_reduxToolkit>
+      <Button_reduxToolkit selected={filter === "actives"} onClick={() => handleFilterChange("active")}>Active</Button_reduxToolkit>
+      <Button_reduxToolkit selected={filter === statusFilters_reduxToolkit.complety} onClick={() => handleFilterChange(statusFilters_reduxToolkit.complety)}>Completed</Button_reduxToolkit>
     </div>
   );
 };

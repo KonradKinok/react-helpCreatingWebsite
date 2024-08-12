@@ -11,6 +11,12 @@ const filtersSlice = createSlice({
   reducers: {
     setStatusFilter(state, action) {
       state.status = action.payload;
+      console.log(
+        "setStatusFilter: state.status",
+        state.status,
+        "action.payload",
+        action.payload,
+      );
     },
   },
 });
