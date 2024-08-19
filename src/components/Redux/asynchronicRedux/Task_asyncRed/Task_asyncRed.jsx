@@ -2,32 +2,33 @@ import { MdClose } from "react-icons/md";
 import css from "./Task.module.css";
 // Importujemy hook 
 import { useDispatch } from "react-redux";
+import { deleteTask, toggleCompleted } from "../../reduxToolkit/redux_reduxToolkit/operations";
 // Importujemy generator akcji
-import { deleteTask, toggleCompleted } from "../../redux_reduxToolkit/tasksSlice";
+// import { deleteTask, toggleCompleted } from "../../redux_reduxToolkit/tasksSlice";
 
-export const Task_reduxToolkit = ({ task }) => {
+export const Task_asyncRed = ({ asyncTasks }) => {
   // Otrzymujemy odnośnik do funkcji wysłania akcji
   const dispatch = useDispatch();
 
   // Wywołujemy generator akcji i przekazujemy identyfikator zadania
   // Wysyłamy wynik - akcję usunięcia zadania
-  const handleDelete = () => dispatch(deleteTask(task.id));
+  const handleDelete = () => dispatch(deleteTask(asyncTasks.id));
 
   // Wywołujemy generator akcji i przekazujemy identyfikator zadania
   // Wysyłamy wynik - akcję przełączania statusu zadania
-  const handleToggle = () => dispatch(toggleCompleted(task.id));
-
+  const handleToggle = () => dispatch(toggleCompleted(asyncTasks));
+  console.log("Task_asyncRed -> Task_asyncRed -> asyncTasks.id", asyncTasks.id)
   return (
     <div className={css.wrapper}>
       <input
         type="checkbox"
         className={css.checkbox}
         onChange={handleToggle}
-        checked={task.complet}
+        checked={asyncTasks.completed}
       />
-      <p className={css.text}>{task.text} xxx {formatDateAndHour(task.date)} </p>
+      <p className={css.text}>{asyncTasks.text} xxx  </p>
       <p className={css.text}>
-        Pola obiektu: {Object.keys(task).join(', ')}
+        Pola obiektu: {Object.keys(asyncTasks).join(', ')}
       </p>
       <button className={css.btn} onClick={handleDelete}>
         <MdClose size={24} />

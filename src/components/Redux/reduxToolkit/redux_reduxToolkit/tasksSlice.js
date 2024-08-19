@@ -1,5 +1,5 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-const dane = "2024-12-23T20:23:45Z";
+
 const tasksInitialState = [
   {
     id: 0,
@@ -58,7 +58,7 @@ const tasksSlice = createSlice({
           payload: {
             id: nanoid(),
             text,
-            date: dane,
+            date: new Date().toISOString(),
             complet: false,
             cos: true,
           },

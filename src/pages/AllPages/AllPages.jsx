@@ -25,6 +25,9 @@ const ReduxLayout = lazy(() => import("../Redux/ReduxLayout").then(module => ({ 
 const ReduxMain = lazy(() => import("../Redux/ReduxMain").then(module => ({ default: module.ReduxMain })));
 // const ReduxSimple = lazy(() => import("../Redux/ReduxSimple").then(module => ({ default: module.ReduxSimple })));
 const Redux_Toolkit = lazy(() => import("../Redux/Redux_Toolkit").then(module => ({ default: module.Redux_Toolkit })));
+// const Redux_Asynchronic = lazy(() => import("../Redux/ReduxAsynchronic").then(module => ({ default: module.Redux_Asynchronic })));
+const Redux_Asynchronic = lazy(() => import("../Redux/ReduxAsynchronic"));
+
 // import { ReduxLayout } from "../Redux/ReduxLayout";
 // import { ReduxMain } from "../Redux/ReduxMain";
 // import { ReduxSimple } from "../Redux/ReduxSimple";
@@ -109,6 +112,8 @@ export function AllPages() {
                             <Route index element={<ReduxMain />} />
                             {/* <Route path="redux-simple" element={<ReduxSimple />} /> */}
                             <Route path="redux-toolkit" element={<Redux_Toolkit />} />
+                            <Route path="redux-asynchronic" element={<Redux_Asynchronic />} />
+                            Redux_Asynchronic
                         </Route>
 
                     </Route>

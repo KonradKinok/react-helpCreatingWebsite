@@ -10,7 +10,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store_reduxToolkit} >
-        <AllPages />
+        <Provider store={store_reduxToolkit}>
+          <AllPages />
+        </Provider>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

@@ -9,6 +9,7 @@ export const ReduxLayout = () => {
                 <nav>
                     <Link to="redux-simple">Redux Simple</Link>
                     <Link to="redux-toolkit">Redux Toolkit</Link>
+                    <Link to="redux-asynchronic">Redux Asynchronic</Link>
                 </nav>
                 <hr />
             </div>
