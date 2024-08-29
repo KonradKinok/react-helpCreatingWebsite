@@ -7,12 +7,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { setStatusFilter } from "../../redux_reduxToolkit/filtersSlice";
 // Importujemy obiekt wartości filtra
 import { statusFilters_reduxToolkit } from "../../redux_reduxToolkit/constants_reduxToolkit";
-import { getStatusFilter } from "../../redux_reduxToolkit/selectors_reduxToolkit";
+import { selectStatusFilter } from "../../redux_reduxToolkit/selectors_reduxToolkit";
 export const StatusFilter_reduxToolkit = () => {
   // Otrzymujemy odnośnik do funkcji wysyłania akcji
   const dispatch = useDispatch();
   // Otrzymujemy wartość filtra ze statusu Redux
-  const filter = useSelector(getStatusFilter);
+  const filter = useSelector(selectStatusFilter);
   // Wywołujemy generator akcji i przekazujemy wartość filtra
   // Wysyłamy wynik - akcja zmiany filtra
   const handleFilterChange = filter => dispatch(setStatusFilter(filter));
