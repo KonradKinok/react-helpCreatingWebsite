@@ -1,5 +1,5 @@
-export const getTasks = (state) => state.tasks;
-export const getStatusFilter = (state) => state.filters.status;
-export const getAsyncTasks = (state) => state.asyncTasks.items;
-export const getIsLoading = (state) => state.tasks.isLoading;
-export const getError = (state) => state.tasks.error;
+export const selectTasks = (state) => state.tasks;
+export const selectStatusFilter = (state) => state.filters.status;
+export const selectAsyncTasks = (state) => state.asyncTasks.items;
+export const selectIsLoading = (state) => state.tasks.isLoading;
+export const selectError = (state) => state.tasks.error;

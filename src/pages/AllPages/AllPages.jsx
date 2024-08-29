@@ -27,7 +27,9 @@ const ReduxMain = lazy(() => import("../Redux/ReduxMain").then(module => ({ defa
 const Redux_Toolkit = lazy(() => import("../Redux/Redux_Toolkit").then(module => ({ default: module.Redux_Toolkit })));
 // const Redux_Asynchronic = lazy(() => import("../Redux/ReduxAsynchronic").then(module => ({ default: module.Redux_Asynchronic })));
 const Redux_Asynchronic = lazy(() => import("../Redux/ReduxAsynchronic"));
-
+const ComponentsLayout = lazy(() => import("../Components/ComponentsLayout").then(module => ({ default: module.ComponentsLayout })));
+const ComponentsMain = lazy(() => import("../Components/ComponentsMain").then(module => ({ default: module.ComponentsMain })));
+const PaginationApp = lazy(() => import("../../components/Paginations/Pagination0/PaginationApp").then(module => ({ default: module.PaginationApp })));
 // import { ReduxLayout } from "../Redux/ReduxLayout";
 // import { ReduxMain } from "../Redux/ReduxMain";
 // import { ReduxSimple } from "../Redux/ReduxSimple";
@@ -62,6 +64,7 @@ export function AllPages() {
                         <StyledLink to="/react-helpCreatingWebsite/old-components">OldComponents</StyledLink>
                         <StyledLink to="/react-helpCreatingWebsite/admin">Admin</StyledLink>
                         <StyledLink to="/react-helpCreatingWebsite/redux">Redux</StyledLink>
+                        <StyledLink to="/react-helpCreatingWebsite/components">Components</StyledLink>
                         <div className="navbar">
                             <NavLink to="/react-helpCreatingWebsite/" end>
                                 Home
@@ -70,6 +73,7 @@ export function AllPages() {
                             <NavLink to="/react-helpCreatingWebsite/products">Products</NavLink>
                             <NavLink to="/react-helpCreatingWebsite/old-components">OldComponents</NavLink>
                             <NavLink to="/react-helpCreatingWebsite/admin">Admin</NavLink>
+                            <NavLink to="/react-helpCreatingWebsite/components">Components</NavLink>
                         </div>
                     </nav>
                 </Header>
@@ -115,7 +119,11 @@ export function AllPages() {
                             <Route path="redux-asynchronic" element={<Redux_Asynchronic />} />
                             Redux_Asynchronic
                         </Route>
+                        <Route path="components" element={<ComponentsLayout />}>
+                            <Route index element={<ComponentsMain />} />
+                            <Route path="paginations" element={<PaginationApp />} />
 
+                        </Route>
                     </Route>
                     <Route path="*" element={<NotFound />} />
                 </Routes>
