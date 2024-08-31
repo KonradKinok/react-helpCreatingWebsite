@@ -20,6 +20,7 @@ import { Customers } from "../Nawigacja1/AdminLayout/Customers";
 import { NotFound } from "../Nawigacja1/NotFound/NotFound";
 import { Container, Header, StyledLink } from "./AllPages.styled";
 import style from "./AllPages.module.scss";
+// import 'modern-normalize';
 import "./AllPages.scss";
 const ReduxLayout = lazy(() => import("../Redux/ReduxLayout").then(module => ({ default: module.ReduxLayout })));
 const ReduxMain = lazy(() => import("../Redux/ReduxMain").then(module => ({ default: module.ReduxMain })));
@@ -30,6 +31,18 @@ const Redux_Asynchronic = lazy(() => import("../Redux/ReduxAsynchronic"));
 const ComponentsLayout = lazy(() => import("../Components/ComponentsLayout").then(module => ({ default: module.ComponentsLayout })));
 const ComponentsMain = lazy(() => import("../Components/ComponentsMain").then(module => ({ default: module.ComponentsMain })));
 const PaginationApp = lazy(() => import("../../components/Paginations/Pagination0/PaginationApp").then(module => ({ default: module.PaginationApp })));
+
+//LoginUser
+import { PrivateRouteUser } from "../UserLogin/components/PrivateRouteUser";
+import { RestrictedRouteUser } from "../UserLogin/components/RestrictedRouteUser";
+import { refreshUser } from "../UserLogin/components/reduxUser/authUser/operationsUser.auth";
+import { useAuthUser } from "../UserLogin/components/hooksUser/useAuthUser";
+const LayoutUser = lazy(() => import("../UserLogin/components/LayoutUser"));
+const HomeUser = lazy(() => import("../UserLogin/pages/HomeUser"));
+const LoginUser = lazy(() => import("../UserLogin/pages/LoginUser"));
+const TasksUser = lazy(() => import("../UserLogin/pages/TasksUser"));
+const RegisterUser = lazy(() => import("../UserLogin/pages/RegisterUser"));
+
 // import { ReduxLayout } from "../Redux/ReduxLayout";
 // import { ReduxMain } from "../Redux/ReduxMain";
 // import { ReduxSimple } from "../Redux/ReduxSimple";
@@ -50,21 +63,22 @@ const PaginationApp = lazy(() => import("../../components/Paginations/Pagination
 // const NotFound = lazy(() => import("../Nawigacja1/NotFound/NotFound"));
 
 export function AllPages() {
-
+    const isRefreshing = false;
     return (
         <>
             <Container>
                 <Header>
                     <nav>
-                        <StyledLink to="/react-helpCreatingWebsite/" end>
+                        <StyledLink to="/" end>
                             Home
                         </StyledLink>
-                        <StyledLink to="/react-helpCreatingWebsite/about">About</StyledLink>
-                        <StyledLink to="/react-helpCreatingWebsite/products">Products</StyledLink>
-                        <StyledLink to="/react-helpCreatingWebsite/old-components">OldComponents</StyledLink>
-                        <StyledLink to="/react-helpCreatingWebsite/admin">Admin</StyledLink>
-                        <StyledLink to="/react-helpCreatingWebsite/redux">Redux</StyledLink>
-                        <StyledLink to="/react-helpCreatingWebsite/components">Components</StyledLink>
+                        <StyledLink to="about">About</StyledLink>
+                        <StyledLink to="products">Products</StyledLink>
+                        <StyledLink to="old-components">OldComponents</StyledLink>
+                        <StyledLink to="admin">Admin</StyledLink>
+                        <StyledLink to="redux">Redux</StyledLink>
+                        <StyledLink to="components">Components</StyledLink>
+                        <StyledLink to="layout-user">Layout User</StyledLink>
                         <div className="navbar">
                             <NavLink to="/react-helpCreatingWebsite/" end>
                                 Home
@@ -86,7 +100,7 @@ export function AllPages() {
                     <Route path="*" element={<NotFound />} />
                 </Routes> */}
                 <Routes>
-                    <Route path="/react-helpCreatingWebsite/" element={<SharedLayout />}>
+                    <Route path="/" element={<SharedLayout />}>
                         <Route index element={<Home />} />
                         {/* <Route path="/react-helpCreatingWebsite/about" >
                         <Route index element={<About />} />
@@ -124,9 +138,37 @@ export function AllPages() {
                             <Route path="paginations" element={<PaginationApp />} />
 
                         </Route>
+                        {isRefreshing ? (<b>Refreshin user...</b>) :
+                            (
+                                <Route path="layout-user" element={<LayoutUser />}>
+                                    <Route index element={<HomeUser />} />
+                                    <Route
+                                        path="register"
+                                        element={
+                                            <RestrictedRouteUser redirectTo="tasks" component={<RegisterUser />} />
+                                        }
+                                    />
+                                    <Route
+                                        path="login"
+                                        element={
+                                            <RestrictedRouteUser redirectTo="tasks" component={<LoginUser />} />
+                                        }
+                                    />
+                                    <Route
+                                        path="tasks"
+                                        element={
+                                            <PrivateRouteUser redirectTo="login" component={<TasksUser />} />
+                                        }
+                                    />
+                                </Route>
+                            )};
                     </Route>
+
+
                     <Route path="*" element={<NotFound />} />
                 </Routes>
+
+
 
             </Container >
         </>
