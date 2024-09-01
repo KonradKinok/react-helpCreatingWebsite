@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { logOut } from "../reduxUser/authUser/operationsUser.auth";
-import { useAuthUser } from "../hooksUser/useAuthUser";
+import { useAuthUser } from "../hooksUser";
 import css from "./UserMenuUser.module.scss";
 
 export const UserMenuUser = () => {

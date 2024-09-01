@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const client = axios.create({
-  baseURL: "https://goit-task-manager.herokuapp.com/",
+  baseURL: "https://connections-api.goit.global/",
 });
 
 const setAuthHeader = (token) => {

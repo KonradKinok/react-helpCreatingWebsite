@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuthUser } from "./hooksUser/useAuthUser";
+import { useAuthUser } from "./hooksUser";
 /**
  * - If the route is private and the user is logged in, render the component
  * - Otherwise render <Navigate> to redirectTo

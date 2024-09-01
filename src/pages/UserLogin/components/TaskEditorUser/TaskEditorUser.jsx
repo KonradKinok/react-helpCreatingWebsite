@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { addTask } from "../reduxUser/tasksUser/operationsUser.tasks";
-import css from "./TaskEditorUser.module.css";
+import css from "./TaskEditorUser.module.scss";
 
 export const TaskEditorUser = () => {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 
 import { Routes, Route, NavLink } from "react-router-dom";
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 import { SharedLayout } from "../Nawigacja1/SharedLayout/SharedLayout";
-
+import { useDispatch } from 'react-redux';
 import { About } from "../Nawigacja1/SharedLayout/About/About"
 import { Home } from "../Nawigacja1/SharedLayout/Home";
 import { ProductDetails } from "../Nawigacja1/SharedLayout/ProductDetails";
@@ -36,7 +36,7 @@ const PaginationApp = lazy(() => import("../../components/Paginations/Pagination
 import { PrivateRouteUser } from "../UserLogin/components/PrivateRouteUser";
 import { RestrictedRouteUser } from "../UserLogin/components/RestrictedRouteUser";
 import { refreshUser } from "../UserLogin/components/reduxUser/authUser/operationsUser.auth";
-import { useAuthUser } from "../UserLogin/components/hooksUser/useAuthUser";
+import { useAuthUser } from "../UserLogin/components/hooksUser";
 const LayoutUser = lazy(() => import("../UserLogin/components/LayoutUser"));
 const HomeUser = lazy(() => import("../UserLogin/pages/HomeUser"));
 const LoginUser = lazy(() => import("../UserLogin/pages/LoginUser"));
@@ -63,7 +63,13 @@ const RegisterUser = lazy(() => import("../UserLogin/pages/RegisterUser"));
 // const NotFound = lazy(() => import("../Nawigacja1/NotFound/NotFound"));
 
 export function AllPages() {
-    const isRefreshing = false;
+    const dispatch = useDispatch();
+    const { isRefreshing } = useAuthUser();
+
+    useEffect(() => {
+        dispatch(refreshUser());
+    }, [dispatch]);
+
     return (
         <>
             <Container>
@@ -138,30 +144,31 @@ export function AllPages() {
                             <Route path="paginations" element={<PaginationApp />} />
 
                         </Route>
-                        {isRefreshing ? (<b>Refreshin user...</b>) :
-                            (
-                                <Route path="layout-user" element={<LayoutUser />}>
-                                    <Route index element={<HomeUser />} />
-                                    <Route
-                                        path="register"
-                                        element={
-                                            <RestrictedRouteUser redirectTo="tasks" component={<RegisterUser />} />
-                                        }
-                                    />
-                                    <Route
-                                        path="login"
-                                        element={
-                                            <RestrictedRouteUser redirectTo="tasks" component={<LoginUser />} />
-                                        }
-                                    />
-                                    <Route
-                                        path="tasks"
-                                        element={
-                                            <PrivateRouteUser redirectTo="login" component={<TasksUser />} />
-                                        }
-                                    />
-                                </Route>
-                            )};
+                        {/* {isRefreshing ? (<b>Refreshin user...</b>) : */}
+
+                        (
+                        <Route path="layout-user" element={<LayoutUser />}>
+                            <Route index element={<HomeUser />} />
+                            <Route
+                                path="register"
+                                element={
+                                    <RestrictedRouteUser redirectTo="/layout-user/tasks" component={<RegisterUser />} />
+                                }
+                            />
+                            <Route
+                                path="login"
+                                element={
+                                    <RestrictedRouteUser redirectTo="/layout-user/tasks" component={<LoginUser />} />
+                                }
+                            />
+                            <Route
+                                path="tasks"
+                                element={
+                                    <PrivateRouteUser redirectTo="/layout-user/login" component={<TasksUser />} />
+                                }
+                            />
+                        </Route>
+                        )
                     </Route>
 
 
